@@ -1,0 +1,15 @@
+{
+    "id": "video3",
+    "cmd": "chmod +x server-stream-track.py && export PYTHONPATH=/home/kormart/opencv-python-lib:/home/kormart/numpy-lib:/root && ./server-stream-track.py rtsp://10.0.1.161:8080/test.sdp",
+    "cpus": 2,
+    "mem": 200.0,
+    "ports": [
+        9090
+    ],
+    "instances": 1,
+    "executor": "",
+    "uris": [
+        "http://10.0.1.161/server-stream-track.py"
+    ],
+    "version": "2014-03-01T23:29:30.158Z"
+}
