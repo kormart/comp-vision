@@ -21,21 +21,24 @@ Have this in configuration.nix
 Plus usual Mesos and Marathon services.
 
 ## making opencv stuff available for python app
-The python app below uses the libraries: numpy and opencv 
-I manually created two sym links to make Marathon manifest simpler
+The python app below uses the libraries: numpy, cv2 (which is the opencv lib), common, and video. I manually created two sym links to make Marathon manifest simpler
 
     numpy-lib -> /nix/store/kc3rvyqky78jcfsp6c2hyyfxdgffnvc2-python2.7-numpy-1.7.1/lib/python2.7/site-packages
     opencv-python-lib -> /nix/store/x75azbh2qfipna4s8ybas33q1kvgjszi-opencv-2.4.7/lib/python2.7/site-packages
 
+For common.pyc and video.pyc, I cheated a bit and placed them manually in /root. This should be fixed by distributing them in a package or with the application (listing them in marathon manifest, see below).
 
 ## marathon manifest
 Application is started with the manifest file mara_video.json, using Marathon API like this
 
     curl -X POST -H "Content-Type: application/json" http://10.0.1.101:8081/v2/apps -d@mara_video.json
 
-## python application 
-Application is in file server-stream-track.py
-Note that first line in .py needs to have Nix path.
+I serve the python app from a web server at 10.0.1.161, you have to put in your own in the manifest.
+
+## python server 
+The server application is in file server-stream-track.py
+Note that first line in .py needs to have the Nix path to python.
 
     #!/run/current-system/sw/bin/python
 
+The python server renders html video at port number 9090.  
