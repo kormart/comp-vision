@@ -1,6 +1,6 @@
 comp-vision
 ===========
-This describes how to set-up a computer vision server in python using OpenCV library, on a Marathon/Mesos and NixOS platform.
+This describes how to set-up a computer vision server in python using the OpenCV library, on a Marathon/Mesos and NixOS platform.
 
 ## client side for video streaming
 The computer vision server expects an rtsp/rtp video stream. Using vlc like this produces such stream from a camera
@@ -26,8 +26,6 @@ I manually created two sym links to make Marathon manifest simpler
 
     numpy-lib -> /nix/store/kc3rvyqky78jcfsp6c2hyyfxdgffnvc2-python2.7-numpy-1.7.1/lib/python2.7/site-packages
     opencv-python-lib -> /nix/store/x75azbh2qfipna4s8ybas33q1kvgjszi-opencv-2.4.7/lib/python2.7/site-packages
-
-# alternative, if not using opencv package via nix
 
 
 ## marathon manifest
