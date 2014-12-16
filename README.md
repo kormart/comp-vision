@@ -32,6 +32,8 @@ Application is started with the manifest file mara_video.json, using Marathon AP
 
     curl -X POST -H "Content-Type: application/json" http://10.0.1.101:8081/v2/apps -d@mara_video.json
 
+I serve the python app from a web server at 10.0.1.161, you have to put in your own in the manifest.
+
 ## python application 
 The server application is in file server-stream-track.py
 Note that first line in .py needs to have the Nix path to python.
