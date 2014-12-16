@@ -26,7 +26,7 @@ The python app below uses the libraries: numpy, cv2 (which is the opencv lib), c
     numpy-lib -> /nix/store/kc3rvyqky78jcfsp6c2hyyfxdgffnvc2-python2.7-numpy-1.7.1/lib/python2.7/site-packages
     opencv-python-lib -> /nix/store/x75azbh2qfipna4s8ybas33q1kvgjszi-opencv-2.4.7/lib/python2.7/site-packages
 
-For common.pyc and video.pyc, I cheated a bit and placed them manually in /root. This should be fixed by distributing them in a package or with the application (listing them in marathon manifest, see below).
+For common.pyc and video.pyc, I cheated a bit and placed them manually in /root. This should be fixed by distributing them in a package or with the application (listing them in marathon manifest, see below). These two files can be found in the folder samples/python2 in the opencv source blob.
 
 ## marathon manifest
 Application is started with the manifest file mara_video.json, using Marathon API like this
