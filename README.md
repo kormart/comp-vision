@@ -33,7 +33,7 @@ Application is started with the manifest file mara_video.json, using Marathon AP
 
     curl -X POST -H "Content-Type: application/json" http://10.0.1.101:8081/v2/apps -d@mara_video.json
 
-I serve the python app from a web server at 10.0.1.161, you have to put in your own in the manifest.
+The manifest assumes that the python app file (below) is served from a web server at 10.0.1.161, you have to put in your own in the manifest.
 
 ## python server 
 The server application is in file server-stream-track.py
