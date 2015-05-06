@@ -1,4 +1,4 @@
-#!/run/current-system/sw/bin/python
+#!/usr/bin/python
 '''
 	orig author: Igor Maculan - n3wtron@gmail.com
 	A Simple mjpg stream http server
