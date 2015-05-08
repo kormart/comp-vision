@@ -1,0 +1,20 @@
+[Unit]
+Description=stream-opencv
+After=docker.service
+Requires=docker.service
+
+[Service]
+User=core
+EnvironmentFile=/etc/environment
+ExecStartPre=/usr/bin/docker pull 10.125.146.8:5000/stream-opencv3-strip
+ExecStartPre=-/usr/bin/docker rm 10.125.146.8:5000/stream-opencv3-strip
+ExecStart=/usr/bin/docker run --rm --name stream-opencv3 -p 9595:9595 10.125.146.8:5000/stream-opencv3-strip /server-stream-track.py 9595 rtsp://10.125.146.161:554/mpeg4
+ExecStop=/usr/bin/docker stop 10.125.146.8:5000/stream-opencv3-strip
+ExecStopPost=-/usr/bin/docker rm 10.125.146.8:5000/stream-opencv3-strip
+
+TimeoutStartSec=900s
+Restart=always
+RestartSec=10s
+
+[X-Fleet]
+MachineMetadata=role=core

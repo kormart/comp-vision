@@ -98,11 +98,11 @@ class CamHandler(BaseHTTPRequestHandler):
 def main():
 	global video_src
     	import sys
-    	try: video_src = sys.argv[1]
+    	try: video_src = sys.argv[2]
     	except: video_src = 0
 
 	try:
-		server = HTTPServer(('',9090),CamHandler)
+		server = HTTPServer(('',int(sys.argv[1])),CamHandler)
 		print "server started"
 		server.serve_forever()
 	except KeyboardInterrupt:
